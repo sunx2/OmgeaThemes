@@ -1,1 +1,50 @@
-<h1>hello</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omega Free Themes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-image: url("https://i.pinimg.com/originals/4e/47/f6/4e47f624ffeeec66be0c833f4bff5973.gif");
+            background-size: contain;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="w3-row">
+        <h1 class="w3-center">Omega Free Themes</h1>
+        <div class="w3-half w3-container">
+            <div class="container"><h1>Sweet Dream Lavenge Theme</h1></div>
+            <div ng-repeat="item in themes track by $index">
+            <video poster="{{thumbnails[$index]}}" class="w3-card-4" width="320" height="240" controls>
+                <source src="{{item}}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video><hr>
+            <button class="w3-button">Download</button>
+            <hr>
+            </div>
+            
+        </div>
+            
+        <div class="w3-half w3-container">
+
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+    $scope.themes = ['https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/lobby.mp4',"https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/menu.mp4","https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/deck.mp4","https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/dog%20video%201.mp4"]
+    $scope.thumbnails = ["https://github.com/sunx2/OmgeaThemes/blob/main/lavenge%201.jpg?raw=true","https://github.com/sunx2/OmgeaThemes/blob/main/futaba.jpg?raw=true","https://github.com/sunx2/OmgeaThemes/blob/main/justine.jpg?raw=true","https://github.com/sunx2/OmgeaThemes/blob/main/dog%201.jpg?raw=true"]
+});
+</script>
+</html>
+
+
+
+
