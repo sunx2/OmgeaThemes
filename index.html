@@ -9,30 +9,46 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         body {
-            background-image: url("https://i.pinimg.com/originals/4e/47/f6/4e47f624ffeeec66be0c833f4bff5973.gif");
+            background-image: url("https://wallpapercave.com/wp/wp2757874.gif");
             background-size: contain;
             color: aliceblue;
+        }
+        h1{
+            font-size: 200%;
         }
     </style>
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
     <div class="w3-row">
-        <h1 class="w3-center"><img src="https://github.com/sunx2/OmgeaThemes/blob/main/OmgeaLogo.gif?raw=true" alt="" srcset=""></h1>
+        <h1 class="w3-center">Omega Free Themes</h1>
         <div class="w3-half w3-container">
-            <div class="container"><h1>Sweet Dream Lavenge Theme</h1></div>
             <div ng-repeat="item in themes track by $index">
+                <div class="container"><h1>{{names[$index]}}</h1></div>
             <video poster="{{thumbnails[$index]}}" class="w3-card-4" width="320" height="240" controls>
                 <source src="{{item}}" type="video/mp4">
               Your browser does not support the video tag.
-            </video><hr>
-            <button class="w3-button">Download</button>
+            </video><br>
+            <button id="{{$index}}" ng-click="downloadx($event)" class="w3-button">Download - {{size[$index]}} MB</button>
             <hr>
             </div>
             
         </div>
-            
+        
         <div class="w3-half w3-container">
-
+            <h1>How To Install</h1>
+            <ul>
+                <li>Download Theme</li>
+                <li>Unzip ( 7zip recommended )<br> using password <span class="w3-text-green">sun</span></li>
+                <li>Copy files to <br><span class="w3-text-red">[Omega Install Path]\YGO Omega_Data\Files\Backgrounds</span> <br> and paste on the folder you want.<br>example in Lobby folder for Lobby Theme</li>
+                <li>Disable Static background for effects.</li>
+                <li>Some theme may not contain music<br>as those are copyrighted</li>
+            </ul>
+            <h1>Terms and Conditions</h1>
+            <ul>
+                <li>You can freely distribute.</li>
+                <li>You can't sell.</li>
+                <li>You are free to edit.</li>
+            </ul>
         </div>
     </div>
 </body>
@@ -41,6 +57,18 @@
     app.controller('myCtrl', function($scope) {
     $scope.themes = ['https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/lobby.mp4',"https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/menu.mp4","https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/deck.mp4","https://raw.githubusercontent.com/sunx2/OmgeaThemes/main/dog%20video%201.mp4"]
     $scope.thumbnails = ["https://github.com/sunx2/OmgeaThemes/blob/main/lavenge%201.jpg?raw=true","https://github.com/sunx2/OmgeaThemes/blob/main/futaba.jpg?raw=true","https://github.com/sunx2/OmgeaThemes/blob/main/justine.jpg?raw=true","https://github.com/sunx2/OmgeaThemes/blob/main/dog%201.jpg?raw=true"]
+    $scope.size =[9.95,24.1,10.5,21.5]
+    $scope.names = ["Sweet Dreams Lavenge Theme","Virtual Girl Futaba Theme","Jailor Twins Theme","Dog Chilling Theme"]
+    $scope.downloads = ["https://github.com/sunx2/OmgeaThemes/raw/main/lavenge.7z","https://github.com/sunx2/OmgeaThemes/raw/main/Futaba.7z","https://github.com/sunx2/OmgeaThemes/raw/main/Justine.7z","https://github.com/sunx2/OmgeaThemes/raw/main/Dog.7z"]
+    $scope.downloadx = function(event){
+        const link = document.createElement('a');
+        link.setAttribute('target', '_blank');
+        link.setAttribute('href', $scope.downloads[parseInt(event.target.id)]);
+        document.body.appendChild(link);
+        link.click();
+        console.log(link)
+        link.remove();
+    }
 });
 </script>
 </html>
